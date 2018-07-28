@@ -20,8 +20,54 @@ Check out this branch and run `make`. This will:
       * These tests were compiled using stored data from a number of MapShed
         runs on a local database using the `extra/tests.sql` query
   5. Compare the timings for both and print the results
+  6. Compare the results for both with a 1% tolerance and print the results
 
 ## Results
+
+### Tolerance
+
+Unfortunately, all but one files had significant differences in the results:
+
+```shell
+$ make -s tolerance | cut -f 1 -d\[ | uniq | sort
+
+huc08__1747.json
+huc08__1748.json
+huc08__1750.json
+huc08__1751.json
+huc08__1773.json
+huc10__11444.json
+huc10__12968.json
+huc10__1340.json
+huc10__1341.json
+huc10__2208.json
+huc10__3176.json
+huc10__3179.json
+huc10__38.json
+huc10__3928.json
+huc10__9392.json
+huc12__53956.json
+huc12__55174.json
+huc12__60099.json
+huc12__60100.json
+huc12__60101.json
+```
+
+The one file that did not have differences was `huc08__92.json`.
+
+The total number of differences across the 20 files is 2249.
+
+```shell
+$ make -s tolerance | wc -l
+
+    2249
+```
+
+If I delete one or more of the `tests/*.json` files, the tolerance results vary
+wildly. It is hard to tell if this is a bug in the output generation code or in
+the new GWLF-E itself.
+
+### Timing
 
 On my computer, a 2016 i5 13" MacBook Pro, there is significant speedup in the
 GWLF-E model, and slight slowdowns in reading and writing GMS files:
