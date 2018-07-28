@@ -1,8 +1,14 @@
-.PHONY: default test-pipenv run-drexeleds run-wikiwatershed
+.PHONY: default test-python test-pipenv run-drexeleds run-wikiwatershed timing
 
+PYTHON := $(shell command -v python 2> /dev/null)
 PIPENV := $(shell command -v pipenv 2> /dev/null)
 
-default: test-pipenv install run-drexeleds run-wikiwatershed
+default: test-python test-pipenv install run-drexeleds run-wikiwatershed timing
+
+test-python:
+ifndef PYTHON
+	$(error "Please install python")
+endif
 
 test-pipenv:
 ifndef PIPENV
@@ -18,3 +24,6 @@ run-drexeleds:
 
 run-wikiwatershed:
 	bash -c "cd wikiwatershed; pipenv run python main.py"
+
+timing:
+	python timing.py
