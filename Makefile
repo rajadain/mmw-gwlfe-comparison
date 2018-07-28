@@ -1,9 +1,9 @@
-.PHONY: default test-python test-pipenv run-drexeleds run-wikiwatershed timing
+.PHONY: default test-python test-pipenv run-drexeleds run-wikiwatershed timing tolerance
 
 PYTHON := $(shell command -v python 2> /dev/null)
 PIPENV := $(shell command -v pipenv 2> /dev/null)
 
-default: test-python test-pipenv install run-drexeleds run-wikiwatershed timing
+default: test-python test-pipenv install run-drexeleds run-wikiwatershed timing tolerance
 
 test-python:
 ifndef PYTHON
@@ -28,3 +28,6 @@ run-wikiwatershed:
 
 timing:
 	bash -c "cd main; pipenv run python timing.py"
+
+tolerance:
+	bash -c "cd main; pipenv run python tolerance.py"
