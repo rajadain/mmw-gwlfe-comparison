@@ -15,10 +15,11 @@ Check out this branch and run `make`. This will:
 
   1. Install GWLF-E 0.6.3 in the `wikiwatershed` directory
   2. Install GWLF-E drexeleds#develop in the `drexeleds` directory
-  3. Run both versions against the tests in `tests` directory
+  3. Install dependencies for result interpretation in the `main` directory
+  4. Run both versions against the tests in `tests` directory
       * These tests were compiled using stored data from a number of MapShed
         runs on a local database using the `extra/tests.sql` query
-  4. Compare the timings for both and print the results
+  5. Compare the timings for both and print the results
 
 ## Results
 
@@ -27,7 +28,7 @@ GWLF-E model, and slight slowdowns in reading and writing GMS files:
 
 ```shell
 $ make timing
-python timing.py
+bash -c "cd main; pipenv run python timing.py"
 
 huc08
 * Average read_input_file speedup: -3.48%

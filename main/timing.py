@@ -19,12 +19,12 @@ speedup = {
 
 count = {group: 0 for group in groups}
 
-for filename in os.listdir('tests/'):
+for filename in os.listdir('../tests/'):
     group = filename[:5]
     count[group] += 1
 
-    with open('./drexeleds/output/{}.timing'.format(filename)) as d:
-        with open('./wikiwatershed/output/{}.timing'.format(filename)) as w:
+    with open('../drexeleds/output/{}.timing'.format(filename)) as d:
+        with open('../wikiwatershed/output/{}.timing'.format(filename)) as w:
             dt = json.load(d)
             wt = json.load(w)
 

@@ -18,6 +18,7 @@ endif
 install:
 	bash -c "cd drexeleds; pipenv install"
 	bash -c "cd wikiwatershed; pipenv install"
+	bash -c "cd main; pipenv install"
 
 run-drexeleds:
 	bash -c "cd drexeleds; pipenv run python main.py"
@@ -26,4 +27,4 @@ run-wikiwatershed:
 	bash -c "cd wikiwatershed; pipenv run python main.py"
 
 timing:
-	python timing.py
+	bash -c "cd main; pipenv run python timing.py"
