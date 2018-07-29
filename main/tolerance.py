@@ -1,18 +1,30 @@
 import os
 import json
+import argparse
 
 from dictdiffer import diff
 
 diffs = {}
 
+argp = argparse.ArgumentParser(
+    description='Compare GWLF-E Output to given tolerance')
+argp.add_argument('tolerance', metavar='T', type=float,
+                  help='How much difference to tolerate.')
+argp.add_argument('--single', action='store_true', default=False,
+                  help='Operate on single run results. Default false.')
+
+args = argp.parse_args()
+
+drexeldir = '../drexeleds/output_single/{}' \
+            if args.single else '../drexeleds/output/{}'
+
 for filename in os.listdir('../tests/'):
-    with open('../drexeleds/output/{}'.format(filename)) as d:
+    with open(drexeldir.format(filename)) as d:
         with open('../wikiwatershed/output/{}'.format(filename)) as w:
             dv = json.load(d)
             wv = json.load(w)
 
-            # Diff with 1% tolerance
-            diffs[filename] = list(diff(wv, dv, tolerance=0.01))
+            diffs[filename] = list(diff(wv, dv, tolerance=args.tolerance))
 
 for filename, changes in diffs.iteritems():
     if not changes:
