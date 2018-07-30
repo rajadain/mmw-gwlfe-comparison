@@ -28,8 +28,11 @@ for filename in os.listdir('../tests/'):
 
 for filename, changes in diffs.iteritems():
     if not changes:
+        print('{} matches to a tolerance of {}'
+              .format(filename, args.tolerance))
         continue
 
+    print('{} differs:'.format(filename))
     for change in changes:
         label = '[{}]'.format(change[1]) \
             if isinstance(change[1], basestring) \
