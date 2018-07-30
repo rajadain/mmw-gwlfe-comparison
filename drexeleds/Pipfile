@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 numba = "==0.38.0"
-gwlf-e = {ref = "develop", git = "git://github.com/drexeleds/gwlf-e"}
+gwlf-e = {ref = "multirun-memoization", git = "git://github.com/drexeleds/gwlf-e"}
 
 [dev-packages]
 

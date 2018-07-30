@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1c0ec6776256d72b468adcb4e72445a44ea2fe90cecb6cb25464fc1fb269da7a"
+            "sha256": "8033b9a96d43fa43d5e8c37986e56698ce704ece84e3a07601c6108583e693e1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -34,7 +34,7 @@
         },
         "gwlf-e": {
             "git": "git://github.com/drexeleds/gwlf-e",
-            "ref": "cd189abb53b6761c9820a026b2e2ce79f9817189"
+            "ref": "0c3150f0e80eb7b55987c8d17e8c836035aa81b7"
         },
         "llvmlite": {
             "hashes": [

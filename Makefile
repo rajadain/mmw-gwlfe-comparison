@@ -33,7 +33,7 @@ timing:
 	bash -c "cd main; pipenv run python timing.py"
 
 tolerance:
-	bash -c "cd main; pipenv run python tolerance.py 0.01"
+	bash -c "cd main; pipenv run python tolerance.py 0.00000000000001"
 
 tolerance-single:
 	bash -c "cd main; pipenv run python tolerance.py 0.01 --single"
