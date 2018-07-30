@@ -34,7 +34,7 @@
         },
         "gwlf-e": {
             "git": "git://github.com/drexeleds/gwlf-e",
-            "ref": "cd189abb53b6761c9820a026b2e2ce79f9817189"
+            "ref": "9e058445537dd32d1916f76c4b73ca64261771cd"
         },
         "llvmlite": {
             "hashes": [
